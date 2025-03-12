@@ -1,0 +1,9 @@
+path: 'C:/Users/mahia/OneDrive/Desktop/infosys_project/detection_model/data.yaml'
+train: 'C:/Users/mahia/OneDrive/Desktop/infosys_project/detection_model/detection_dataset/dataset/dataset/dataset/images/train'
+val: 'C:/Users/mahia/OneDrive/Desktop/infosys_project/detection_model/detection_dataset/dataset/dataset/dataset/images/val'
+
+
+names:
+  0: name
+  1: uid
+  2: address
