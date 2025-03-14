@@ -1,0 +1,130 @@
+{% extends 'base.html' %}
+
+{% block title %}Verification History - AadharVerify{% endblock %}
+
+{% block styles %}
+.card-header{
+    background-color:#9999ff;
+}
+.session-card {
+    transition: transform 0.3s ease;
+    background-color:#d9d9f5;
+}
+.session-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+}
+.session-stats {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 15px;
+}
+.stat-item {
+    text-align: center;
+    flex: 1;
+    padding: 10px;
+    border-radius: 5px;
+}
+.total-count {
+    background-color: #e9ecef;
+}
+.accepted-count {
+    background-color: #d4edda;
+    color: #155724;
+}
+.rejected-count {
+    background-color: #f8d7da;
+    color: #721c24;
+}
+.stat-label {
+    font-size: 12px;
+    margin-bottom: 5px;
+}
+.stat-value {
+    font-size: 18px;
+    font-weight: bold;
+}
+/* Heading with lines styles */
+.history-heading {
+    position: relative;
+    display: inline-block;
+    padding: 0 20px;
+    font-size: 32px;
+    font-weight: bold;
+    margin-bottom: 30px;
+}
+.history-heading:before, .history-heading:after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    height: 3px;
+    width: 50px;
+    background: #feb900;
+}
+.history-heading:before {
+    right: 100%;
+}
+.history-heading:after {
+    left: 100%;
+}
+.heading-wrapper {
+    text-align: center;
+    margin-bottom: 30px;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+{% endblock %}
+
+{% block content %}
+<div class="container" style="padding-top: 40px; padding-bottom: 60px;">
+    <div class="heading-wrapper">
+        <h1 class="history-heading">Verification History</h1>
+    </div>
+
+    {% if sessions %}
+    <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 20px;">
+        {% for session in sessions %}
+        <div class="card session-card">
+            <div class="card-header">
+                <h3 style="margin: 0;">Session: {{ session.created_at.strftime('%Y-%m-%d') }}</h3>
+                <small style="color: #6c757d;">{{ session.created_at.strftime('%H:%M:%S') }}</small>
+            </div>
+            <div class="card-body">
+                <p><strong>Session ID:</strong> <span
+                        style="font-family: monospace; background: #f8f9fa; padding: 2px 5px; border-radius: 3px;">{{
+                        session.session_id[:8] }}...</span></p>
+
+                <div class="session-stats">
+                    <div class="stat-item total-count">
+                        <div class="stat-label">Total</div>
+                        <div class="stat-value">{{ session.total_documents }}</div>
+                    </div>
+                    <div class="stat-item accepted-count">
+                        <div class="stat-label">Accepted</div>
+                        <div class="stat-value">{{ session.accepted_documents }}</div>
+                    </div>
+                    <div class="stat-item rejected-count">
+                        <div class="stat-label">Rejected</div>
+                        <div class="stat-value">{{ session.rejected_documents }}</div>
+                    </div>
+                </div>
+
+                <div style="margin-top: 20px; text-align: center;">
+                    <a href="{{ url_for('view_session', session_id=session.session_id) }}" class="btn btn-primary">View
+                        Details</a>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+    {% else %}
+    <div class="card">
+        <div class="card-body" style="text-align: center;">
+            <p style="font-size: 18px; margin-bottom: 20px;">No verification sessions found</p>
+            <a href="{{ url_for('services') }}" class="btn btn-primary">Start a New Verification</a>
+        </div>
+    </div>
+    {% endif %}
+</div>
+{% endblock %}

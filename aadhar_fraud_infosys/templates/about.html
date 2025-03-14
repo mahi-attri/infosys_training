@@ -1,0 +1,487 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AadharVerify. - About</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Inter', Arial, sans-serif;
+        }
+
+        body {
+            color: #333;
+            line-height: 1.6;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        /* Header styles */
+        header {
+            position: fixed;
+            width: 100%;
+            padding: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 100;
+            background-color: #645cdd;
+            color: white;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        .logo span {
+            color: #FFD700;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+
+        nav ul li {
+            margin-left: 30px;
+        }
+
+        nav ul li a {
+            position: relative;
+            padding: 5px 0;
+            font-weight: 500;
+            transition: 0.3s;
+        }
+
+        nav ul li a:hover,
+        nav ul li a.active {
+            color: #FFD700;
+        }
+
+        nav ul li a.active::after {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 3px;
+            background: #FFD700;
+            left: 0;
+            bottom: -5px;
+        }
+
+        /* About section styles */
+        .about-section {
+            padding: 120px 20px 40px;
+            flex-grow: 1;
+        }
+
+        /* Updated styles to properly center the heading */
+        .about-section h1 {
+            text-align: center;
+            margin-bottom: 40px;
+            font-size: 36px;
+            position: relative;
+            display: inline-block;
+            padding: 0 20px;
+        }
+
+        .about-section h1:before,
+        .about-section h1:after {
+            content: "";
+            position: absolute;
+            top: 50%;
+            height: 3px;
+            width: 50px;
+            background: #feb900;
+        }
+
+        .about-section h1:before {
+            right: 100%;
+            /* Position before the text */
+        }
+
+        .about-section h1:after {
+            left: 100%;
+            /* Position after the text */
+        }
+
+        .about-heading-wrapper {
+            display: flex;
+            justify-content: center;
+            width: 100%;
+            margin-bottom: 10px;
+        }
+
+        .about-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .about-container span {
+            color: #feb900;
+        }
+
+        .about-section h1 {
+            text-align: center;
+            margin-bottom: 40px;
+            font-size: 36px;
+        }
+
+        .about-flex {
+            display: flex;
+            align-items: center;
+            margin-bottom: 50px;
+            flex-wrap: wrap;
+        }
+
+        .about-text {
+            flex: 1;
+            padding-right: 50px;
+            min-width: 300px;
+        }
+
+        .about-text h2 {
+            margin-bottom: 20px;
+            color: #333;
+        }
+
+        .about-text p {
+            margin-bottom: 15px;
+            line-height: 1.6;
+        }
+
+        .about-image {
+            flex: 1;
+            min-width: 100px;
+            text-align: center;
+        }
+
+        /* .about-image img {
+            max-width: 100%;
+            border-radius: 8px;
+        } */
+        .about-image img {
+            max-width: 500px;
+            /* Increase from 100% to a specific larger size */
+            width: 100%;
+            /* Make it responsive but still large */
+            border-radius: 8px;
+            transition: transform 0.3s ease;
+            /* Optional: adds a subtle hover effect */
+            height: 390px;
+            margin-bottom: 75px;
+        }
+
+        .about-image img:hover {
+            transform: scale(1.02);
+            /* Optional: slight zoom effect on hover */
+        }
+
+
+        /* Make the container responsive */
+        .about-image {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 20px 0;
+        }
+
+        .about-image-1 img {
+            flex: 1;
+            min-width: 300px;
+            text-align: center;
+            max-width: 100%;
+            border-radius: 8px;
+            margin-right: 50px;
+        }
+
+        .about-text span {
+            color: #feb900;
+        }
+
+        .values-section {
+            background-color: #f4f4f4;
+            padding: 50px;
+            border-radius: 8px;
+            margin-bottom: 120px;
+        }
+
+        .values-section h2 {
+            text-align: center;
+            margin-bottom: 30px;
+            color: #333;
+            font-size: 30px;
+            position: relative;
+            display: inline-block;
+            padding: 0 20px;
+        }
+
+        .values-section h2:before,
+        .values-section h2:after {
+            content: "";
+            position: absolute;
+            top: 50%;
+            height: 3px;
+            width: 50px;
+            background: #feb900;
+        }
+
+        .values-section h2:before {
+            right: 100%;
+            /* Position before the text */
+        }
+
+        .values-section h2:after {
+            left: 100%;
+            /* Position after the text */
+        }
+
+        .values-heading-wrapper {
+            display: flex;
+            justify-content: center;
+            width: 100%;
+            margin-bottom: 30px;
+        }
+
+        .values-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .value-card {
+            background-color: white;
+            padding: 30px;
+            border-radius: 8px;
+            text-align: center;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .value-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .value-card img {
+            width: 80px;
+            height: 80px;
+            margin-bottom: 20px;
+        }
+
+        .value-card h3 {
+            margin-bottom: 15px;
+            color: #333;
+        }
+
+        /* Footer styles */
+        footer {
+            background-color: #9999ff;
+            color: #A0A0A0;
+            padding: 50px 0;
+            position: relative;
+        }
+
+        .footer-content {
+            background-color: white;
+            max-width: 1140px;
+            margin: 0 auto;
+            padding: 30px;
+            border-radius: 8px;
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+        }
+
+        .footer-section {
+            flex: 1;
+            margin-right: 30px;
+            min-width: 200px;
+            margin-bottom: 20px;
+        }
+
+        .footer-section h3 {
+            margin-bottom: 15px;
+            color: black;
+            font-size: 18px;
+        }
+
+        .footer-section a {
+            color: #6c757d;
+            text-decoration: none;
+        }
+
+        .footer-section a:hover {
+            text-decoration: underline;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 20px;
+            color: #6c757d;
+        }
+
+        /* Responsive styles */
+        @media (max-width: 768px) {
+            .about-flex {
+                flex-direction: column;
+            }
+
+            .about-text {
+                padding-right: 0;
+                margin-bottom: 30px;
+            }
+
+            nav ul {
+                display: none;
+                /* Hide navigation on small screens */
+            }
+
+            .footer-content {
+                flex-direction: column;
+            }
+
+            .footer-section {
+                margin-right: 0;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Header Section -->
+    <header>
+        <a href="{{ url_for('index') }}" class="logo">AadharVerify<span>.</span></a>
+        <nav>
+            <ul>
+                <li><a href="{{ url_for('index') }}">HOME</a></li>
+                <li><a href="{{ url_for('about') }}" class="active">ABOUT</a></li>
+                <li><a href="{{ url_for('services') }}">SERVICES</a></li>
+                <li><a href="{{ url_for('contact') }}">CONTACT</a></li>
+                <li><a href="{{ url_for('history') }}">HISTORY</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- About Section -->
+    <section class="about-section">
+        <div class="about-container">
+            <div class="about-heading-wrapper">
+                <h1>About AadharVerify<span>.</span></h1>
+            </div>
+            <div class="about-flex">
+                <div class="about-text">
+                    <h2>Our Mission</h2>
+                    <p>AadharVerify. is a cutting-edge document verification platform designed to revolutionize the way
+                        organizations and individuals verify aadhar identity documents. Our advanced AI-powered system provides
+                        comprehensive, accurate, and efficient verification of Aadhaar cards.</p>
+                    <p>With a mission to combat fraud and ensure regulatory compliance, we leverage state-of-the-art
+                        technology to deliver unparalleled verification services. Our platform is built to meet the
+                        complex challenges of modern identity verification, providing robust solutions for both
+                        individuals and enterprises.</p>
+                </div>
+                <div class="about-image">
+                    <img src="static/Document-Verification - Copy.jpg" alt="AadharVerify. Mission">
+                </div>
+            </div>
+
+            <div class="values-section">
+                <div class="values-heading-wrapper">
+                    <h2>Our Core Values</h2>
+                </div>
+                <div class="values-grid">
+                    <div class="value-card">
+                        <img src="/static/target.png" alt="Accuracy">
+                        <h3>Precision</h3>
+                        <p>Our advanced AI algorithms ensure the highest level of accuracy in document verification.</p>
+                    </div>
+                    <div class="value-card">
+                        <img src="/static/cyber-security.png" alt="Security">
+                        <h3>Security</h3>
+                        <p>We prioritize data protection and privacy with robust security measures.</p>
+                    </div>
+                    <div class="value-card">
+                        <img src="/static/project-management.png" alt="Innovation">
+                        <h3>Innovation</h3>
+                        <p>Continuously evolving our technology to stay ahead of emerging challenges.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="about-flex">
+                <div class="about-image-1">
+                    <img src="/static/fetch.jpg" alt="Why Choose AadharVerify.">
+                </div>
+                <div class="about-text">
+                    <h2>Why Choose AadharVerify<span>.</span></h2>
+                    <p>AadharVerify. stands out as the premier solution for aadhar document verification needs across
+                        industries. Our platform offers:</p>
+                    <ul style="margin-left: 20px; margin-bottom: 15px;">
+                        <li>High accuracy rates with advanced OCR and machine learning</li>
+                        <li>Fast processing of bulk documents</li>
+                        <li>Comprehensive reporting and analytics</li>
+                        <li>Enterprise-grade security and compliance</li>
+                        <li>Seamless integration with existing workflows</li>
+                    </ul>
+                    <p>Whether you're a financial institution, government agency, healthcare provider, or any
+                        organization that relies on accurate identity verification, AadharVerify<span style="color: #FFD700;">.</span> . delivers reliable
+                        solutions that save time, reduce costs, and minimize fraud risks.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer Section -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3 style="margin-bottom: 15px; color: black; font-size: 18px;">AadharVerify<span style="color: #FFD700;">.</span></h3>
+                <p>Phone: +91 9826543210</p>
+                <p>Email: info@aadharverify.com</p>
+            </div>
+            <div class="footer-section">
+                <h3>Useful Links</h3>
+                <ul style="list-style: none; padding: 0;">
+                    <li style="margin-bottom: 10px;"><a href="{{ url_for('index') }}">Home</a></li>
+                    <li style="margin-bottom: 10px;"><a href="{{ url_for('about') }}">About us</a></li>
+                    <li style="margin-bottom: 10px;"><a href="{{ url_for('services') }}">Services</a></li>
+                    <li style="margin-bottom: 10px;"><a href="#">Terms of service</a></li>
+                    <li style="margin-bottom: 10px;"><a href="#">Privacy policy</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Our Services</h3>
+                <ul style="list-style: none; padding: 0;">
+                    <li style="margin-bottom: 10px;"><a href="{{ url_for('services') }}">Aadhar Document Verification</a></li>
+                    <li style="margin-bottom: 10px;"><a href="{{ url_for('services') }}">Bulk Processing</a></li>
+                    <li style="margin-bottom: 10px;"><a href="{{ url_for('services') }}">Identity Validation</a></li>
+                    <li style="margin-bottom: 10px;"><a href="{{ url_for('services') }}">Compliance Solutions</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3 style="margin-bottom: 15px; color: black; font-size: 18px;">Contact Us</h3>
+                <ul style="list-style: none; padding: 0;">
+                    <li style="margin-bottom: 10px;"><a href="{{ url_for('contact') }}">Get in Touch</a></li>
+                    <li style="margin-bottom: 10px;"><a href="{{ url_for('contact') }}">Request a Demo</a></li>
+                    <li style="margin-bottom: 10px;"><a href="{{ url_for('contact') }}">Support</a></li>
+                    <li style="margin-bottom: 10px;"><a href="{{ url_for('contact') }}">Feedback</a></li>
+                </ul>
+            </div>
+        </div>
+        <div style="text-align: center; padding-top: 20px; color: black;">
+            © Copyright AadharVerify<span style="color: #FFD700;">.</span> All Rights Reserved
+        </div>
+    </footer>
+</body>
+
+</html>

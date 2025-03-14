@@ -1,0 +1,13 @@
+Flask
+mysql-connector-python
+pandas
+opencv-python
+ultralytics
+easyocr
+flask-cors
+python-dotenv
+openpyxl
+dash==2.9.3
+dash-bootstrap-components==1.4.1
+plotly==5.14.1
+pandas==1.5.3
