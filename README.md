@@ -2,6 +2,15 @@
 
 AadharVerify. is an AI-powered document verification platform designed specifically for Aadhaar identity documents. The system uses machine learning models for automated document classification, data extraction, and verification to prevent fraud and ensure regulatory compliance.
 
+The below are the snapshots of the website containing the glimpse of home page and the results:
+
+![Image](https://github.com/user-attachments/assets/bdb5e7d9-1cb5-4e1d-8a4f-56cc0e90a2a2)
+
+![Image](https://github.com/user-attachments/assets/6ede186a-9f48-4743-95b3-31676f600209)
+
+![Image](https://github.com/user-attachments/assets/76f9fb15-25bc-4176-8330-38c8a63cb444)
+
+
 # Features
 •	AI-Powered Document Recognition: Automatically identify and classify Aadhaar and non-Aadhaar documents using YOLO-based machine learning models.
 
@@ -74,11 +83,5 @@ Functions and Algorithms:
 
 •	process_files(): Orchestrates the entire verification workflow from file upload to result generation.
 
-The below are the snapshots of the website containing the glimpse of home page and the results:
 
-![Image](https://github.com/user-attachments/assets/bdb5e7d9-1cb5-4e1d-8a4f-56cc0e90a2a2)
-
-![Image](https://github.com/user-attachments/assets/6ede186a-9f48-4743-95b3-31676f600209)
-
-![Image](https://github.com/user-attachments/assets/76f9fb15-25bc-4176-8330-38c8a63cb444)
 
